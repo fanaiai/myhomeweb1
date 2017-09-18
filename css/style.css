@@ -1,0 +1,61 @@
+body{
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+nav{
+	padding:0 6px;
+	height:47px;
+	background: #c2d6ee;
+	font-size: 18px;
+	color:#27364d;
+	line-height: 46px;
+}
+nav .time{
+	/*width:calc(100% - 160px);*/
+}
+nav .system{
+	/*width:160px;*/
+	margin-top: 8px;
+}
+.system>a{
+	display: inline-block;
+	width:30px;
+	height:30px;
+	background:url(/img/spirit.png) no-repeat;
+	margin-left:12px;
+}
+.system>a:nth-child(1){
+	background-position: -130px -6px;
+}
+.system>a:nth-child(2){
+	background-position: -169px -6px;
+}
+.system>a:nth-child(3){
+	background-position: -8px -6px;
+}
+.system>a:nth-child(4){
+	background-position:-47px -6px;
+}
+
+.weather{
+	padding:0 6px;
+	height:60px;
+	line-height: 60px;
+	background: #5dbe79;
+	color:#0d4f20;
+	font-size: 20px;
+	position: relative;
+}
+.weather>.fr{
+	    margin-top: -7px;
+}
+.weather>.fr>p{
+	font-size: 12px;
+	color:#fff;
+	line-height: 20px;
+	word-break: break-all;
+}
