@@ -13,6 +13,7 @@ nav{
 	font-size: 18px;
 	color:#27364d;
 	line-height: 46px;
+	overflow: hidden;
 }
 nav .time{
 	/*width:calc(100% - 160px);*/
@@ -49,13 +50,51 @@ nav .system{
 	color:#0d4f20;
 	font-size: 20px;
 	position: relative;
+	overflow: hidden;
+	width:100%;
+	box-sizing: border-box;
 }
 .weather>.fr{
-	    margin-top: -7px;
 }
 .weather>.fr>p{
 	font-size: 12px;
 	color:#fff;
 	line-height: 20px;
 	word-break: break-all;
+}
+
+.news{
+
+}
+.news>div{
+	width:100%;
+	/*float:left;*/
+}
+.news>div:nth-child(2n){
+	/*float:right;*/
+}
+.news .content .title{
+	height:63px;
+	overflow: hidden;
+	font-size: 16px;
+	line-height: 22px;
+}
+.news .img{
+	height: 83px;
+	overflow: hidden;
+}
+.oneimg .img{
+	width:40%;
+}
+.threeimg .img{
+	width:100%;
+}
+.oneimg .img img{
+	width:100%;
+}
+.threeimg .img img{
+	width:32%;
+}
+.oneimg .content{
+	width:59%;
 }
