@@ -64,7 +64,7 @@ nav .system{
 }
 
 .news{
-
+	padding:6px;
 }
 .news>div{
 	width:100%;
@@ -78,6 +78,15 @@ nav .system{
 	overflow: hidden;
 	font-size: 16px;
 	line-height: 22px;
+}
+.news .content .title a{
+	color:#222;
+	font-weight: bold;
+	font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+}
+.news .content .info span{
+	color:#555;
+	font-size: 14px;
 }
 .news .img{
 	height: 83px;
@@ -97,4 +106,8 @@ nav .system{
 }
 .oneimg .content{
 	width:59%;
+}
+.threeimg .content .title,.noimg .content .title{
+	height:auto;
+	line-height: 34px;
 }

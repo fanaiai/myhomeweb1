@@ -29,7 +29,7 @@
 			<span>{{weather.temp}}℃</span>
 			<span class=""></span>
 			<span>{{weather.weather}}</span>
-			<span>{{weather.templow}}-{{weather.temphigh}}</span>
+			<span>{{weather.templow}}℃-{{weather.temphigh}}℃</span>
 			<span>{{weather.winddirect}}{{weather.windpower}}</span>
 			<span>{{weather.humidity}}%</span>
 			<span v-if="weather.aqi">PM2.5 {{weather.aqi.pm2_5}} {{weather.aqi.quality}}</span>
@@ -40,7 +40,7 @@
 		</section>
 		<section class="news clearfix">
 				<div  v-for="i in news" class="clearfix" :class='{"oneimg":(!i.thumbnail_pic_s03) && i.thumbnail_pic_s,"threeimg":i.thumbnail_pic_s03,"noimg":!i.thumbnail_pic_s}'>
-					<div class="img fl" v-if="i.thumbnail_pic_s">
+					<div class="img fl" v-if="i.thumbnail_pic_s && !i.thumbnail_pic_s03">
 						<img :src="i.thumbnail_pic_s">
 						<img :src="i.thumbnail_pic_s02">
 						<img :src="i.thumbnail_pic_s03">
@@ -54,6 +54,11 @@
 							<span class="author">{{i.author_name}}</span>
 							<span class="time">{{i.date}}</span>
 						</div>
+					</div>
+					<div class="img fl" v-if="i.thumbnail_pic_s03">
+						<img :src="i.thumbnail_pic_s">
+						<img :src="i.thumbnail_pic_s02">
+						<img :src="i.thumbnail_pic_s03">
 					</div>
 				</div>
 		</section>
