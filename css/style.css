@@ -65,6 +65,8 @@ nav .system{
 
 .news{
 	padding:6px;
+	height:250px;
+	overflow: auto;
 }
 .news>div{
 	width:100%;
