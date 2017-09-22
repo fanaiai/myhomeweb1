@@ -5,6 +5,7 @@ var app = new Vue({
         day: "",
         weather: {},
         news: [],
+        oldnews:[],
         inteval: null,
         tab: 1,
         routes: [],
@@ -23,29 +24,35 @@ var app = new Vue({
             driving = new AMap.Driving({ city: '北京市' });
             //TODO: 使用driving对象调用驾车路径规划相关的功能
         })
-        this.map = new AMap.Map('trafic', {
+        var map = new AMap.Map('map', {
             resizeEnable: true,
             zoom: 10,
+            mapStyle: "amap://styles/e641144abf4cf90028d1cf583c0a5249",
             center: [116.480983, 40.0958]
         });
-        this.driving = new AMap.Driving({
-            map: that.map,
-            // panel: "traficinfo",
-            policy: AMap.DrivingPolicy.REAL_TRAFFIC,
-            extensions: "all"
+        map.setFeatures(['road', 'point']) //多个种类要素显示
+        map.plugin(["AMap.ToolBar"], function() {
+            map.addControl(new AMap.ToolBar());
         });
-        //传名称
-        this.driving.search([{ keyword: '阜成路北2号楼', city: '北京' }, { keyword: '国凯基业汽车维修中心' }], function(status, result) {
-            that.routes = result.routes;
+        map.plugin(["AMap.MouseTool"], function() {
+            var mousetool = new AMap.MouseTool(map);
+            mousetool.marker(); //使用鼠标工具，在地图上画标记点
+        });
+        var driving = new AMap.Driving({
+            map: map,
+            // panel: "panel"
+        });
+        driving.search([{ keyword: '甘家口大厦', city: '北京' }, { keyword: '西单商场' }], function(status, result) {
+            //TODO 解析返回结果，自己生成操作界面和地图展示界面
         });
     },
     methods: {
         changepolicy: function(policy, tab) {
-        	var that=this;
+            var that = this;
             this.tab = tab;
             this.driving.setPolicy(AMap.DrivingPolicy[policy])
             this.driving.search([{ keyword: '阜成路北2号楼', city: '北京' }, { keyword: '国凯基业汽车维修中心' }], function(status, result) {
-            	console.log(result)
+                console.log(result)
                 that.routes = result.routes;
             });
         },
@@ -82,6 +89,21 @@ var app = new Vue({
                 }
             })
         },
+        rendnews:function(data){
+            var that=this;
+            that.oldnews=data;
+            if(that.news.length==0){
+                that.news=data;
+            }
+            else{
+                for(var i=0;i<data.length;i++){
+                    if(data[i].uniquekey==that.oldnews[0].uniquekey){
+                        return;
+                    }
+                    that.news.unshift(data[i]);
+                }
+            }
+        },
         getNews: function() {
             var that = this;
             $.ajax({
@@ -91,7 +113,7 @@ var app = new Vue({
                 data: { type: "top" },
                 success: function(r) {
                     if (r.error_code == 0) {
-                        that.news = r.result.data;
+                        that.rendnews(r.result.data);
                     }
                 }
             })

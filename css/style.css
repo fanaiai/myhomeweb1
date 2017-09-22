@@ -65,16 +65,31 @@ nav .system{
 
 .news{
 	padding:6px;
-	height:250px;
-	overflow: auto;
+	position: relative;
+}
+.news .refreshnews{
+	position: absolute;
+	top:0;
+	right: 0;
 }
 .news>div{
+	width:calc((100% - 14px) / 2);
+	padding-right: 4px;
+	border-right: 2px solid #5dbe79;
+}
+.news>div:nth-child(2){
+	margin-right: 0;
+	margin-left: 4px;
+	border-right: 0;
+}
+.news>div>div{
 	width:100%;
-	padding:10px 0;
+	padding:10px 10px;
 	border-bottom: 1px solid #efefef;
+	box-sizing: border-box;
 	/*float:left;*/
 }
-.news>div:nth-child(2n){
+.news>div>div:nth-child(2n){
 	/*float:right;*/
 }
 .news .content .title{
@@ -93,7 +108,7 @@ nav .system{
 	font-size: 12px;
 }
 .news .img{
-	height: 83px;
+	height: 143px;
 	overflow: hidden;
 }
 .oneimg .img{
@@ -111,9 +126,13 @@ nav .system{
 }
 .oneimg .content{
 	width:59%;
-	margin-left: 8px;
+	margin-left: 1%;
 }
 .threeimg .content .title,.noimg .content .title{
 	height:auto;
 	line-height: 34px;
+}
+
+.map{
+	height:400px;
 }

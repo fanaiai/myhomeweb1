@@ -38,8 +38,12 @@
 				<p v-for="i in weather.index">{{i.detail}}</p>
 			</div>
 		</section>
+		<section class="map" id="map">
+			
+		</section>
 		<section class="news clearfix">
-				<div  v-for="i in news" class="clearfix" :class='{"oneimg":(!i.thumbnail_pic_s03) && i.thumbnail_pic_s,"threeimg":i.thumbnail_pic_s03,"noimg":!i.thumbnail_pic_s}'>
+				<div class="fl">
+				<div  v-for="(i,key) in news" class="clearfix" :class='{"oneimg":(!i.thumbnail_pic_s03) && i.thumbnail_pic_s,"threeimg":i.thumbnail_pic_s03,"noimg":!i.thumbnail_pic_s}' v-if="key%2!=1">
 					<div class="img fl" v-if="i.thumbnail_pic_s && !i.thumbnail_pic_s03">
 						<img :src="i.thumbnail_pic_s">
 						<img :src="i.thumbnail_pic_s02">
@@ -61,7 +65,37 @@
 						<img :src="i.thumbnail_pic_s03">
 					</div>
 				</div>
+				</div>
+				<div class="fr">
+				<div  v-for="(i,key) in news" class="clearfix" :class='{"oneimg":(!i.thumbnail_pic_s03) && i.thumbnail_pic_s,"threeimg":i.thumbnail_pic_s03,"noimg":!i.thumbnail_pic_s}'
+				v-if="key%2==1">
+					<div class="img fl" v-if="i.thumbnail_pic_s && !i.thumbnail_pic_s03">
+						<img :src="i.thumbnail_pic_s">
+						<img :src="i.thumbnail_pic_s02">
+						<img :src="i.thumbnail_pic_s03">
+					</div>
+					<div class="content fl">
+						<div class="title">
+							<a :href="i.url">{{i.title}}</a>
+						</div>
+						<div class="info">
+							<span class="tag">{{i.category}}</span>
+							<span class="author">{{i.author_name}}</span>
+							<span class="time">{{i.date}}</span>
+						</div>
+					</div>
+					<div class="img fl" v-if="i.thumbnail_pic_s03">
+						<img :src="i.thumbnail_pic_s">
+						<img :src="i.thumbnail_pic_s02">
+						<img :src="i.thumbnail_pic_s03">
+					</div>
+				</div>	
+				</div>
+				<div class="refreshnews" @click="getNews()" style="position: absolute;top: 0;right: 0">
+					刷新
+				</div>
 		</section>
+
 	</div>
 </body>
 <script type="text/javascript" src="js/index.js"></script>
