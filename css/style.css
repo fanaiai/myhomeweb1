@@ -66,11 +66,17 @@ nav .system{
 .news{
 	padding:6px;
 	position: relative;
+	padding-top:40px;
 }
 .news .refreshnews{
 	position: absolute;
-	top:0;
-	right: 0;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    text-align: center;
+    background: #1bac2e;
+    line-height: 30px;
+    color: #fff;
 }
 .news>div{
 	width:calc((100% - 14px) / 2);
