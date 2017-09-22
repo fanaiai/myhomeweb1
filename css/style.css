@@ -68,6 +68,8 @@ nav .system{
 }
 .news>div{
 	width:100%;
+	padding:10px 0;
+	border-bottom: 1px solid #efefef;
 	/*float:left;*/
 }
 .news>div:nth-child(2n){
@@ -86,7 +88,7 @@ nav .system{
 }
 .news .content .info span{
 	color:#555;
-	font-size: 14px;
+	font-size: 12px;
 }
 .news .img{
 	height: 83px;
@@ -97,6 +99,7 @@ nav .system{
 }
 .threeimg .img{
 	width:100%;
+	margin-top:8px;
 }
 .oneimg .img img{
 	width:100%;
@@ -106,6 +109,7 @@ nav .system{
 }
 .oneimg .content{
 	width:59%;
+	margin-left: 8px;
 }
 .threeimg .content .title,.noimg .content .title{
 	height:auto;
