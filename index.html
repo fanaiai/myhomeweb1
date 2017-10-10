@@ -9,22 +9,11 @@
 	<script type="text/javascript" src="vendor/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="vendor/vue.js"></script>
 	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=57aa7df6e43a4f11bf92ac647e746689"></script>
+	
 </head>
 <body>
 	<div id="index">
-		<nav class="clearfix">
-			<div class="time fl">
-				<span>{{date}}</span>
-				<span>{{day}}</span>
-				<!-- <span>{{nongli}}</span> -->
-			</div>
-			<div class="system fr">
-				<a @click="back()"></a>
-				<a @click="forward()"></a>
-				<a @click="refresh()"></a>
-				<a @click="fullscreen()"></a>
-			</div>
-		</nav>
+		<my-head></my-head>
 		<section class="weather clearfix">
 			<div class="fl">
 			<span>{{weather.temp}}℃</span>
@@ -42,7 +31,10 @@
 		<section class="map" id="map">
 			
 		</section>
-		<section class="news clearfix">
+		<section class="news">
+			<iframe src="https://m.toutiao.com/" style="width:100%;height: 500px;"></iframe>
+		</section>
+		<!-- <section class="news clearfix">
 				<div class="fl">
 				<div  v-for="(i,key) in news" class="clearfix" :class='{"oneimg":(!i.thumbnail_pic_s03) && i.thumbnail_pic_s,"threeimg":i.thumbnail_pic_s03,"noimg":!i.thumbnail_pic_s}' v-if="key%2!=1">
 					<div class="img fl" v-if="i.thumbnail_pic_s && !i.thumbnail_pic_s03">
@@ -95,9 +87,10 @@
 				<div class="refreshnews" @click="getNews()" style="position: absolute;top: 0;right: 0">
 					刷新
 				</div>
-		</section>
+		</section> -->
 
 	</div>
 </body>
+<script type="text/javascript" src="js/comp/header.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </html>

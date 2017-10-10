@@ -5,17 +5,18 @@ var app = new Vue({
         day: "",
         weather: {},
         news: [],
-        oldnews:[],
+        oldnews: [],
         inteval: null,
         tab: 1,
         routes: [],
+        full:false,
         pause: false
     },
     created: function() {
         window.setInterval(this.getDate, 1000);
         this.getWeather();
-        this.getNews();
-        this.scrollNews();
+        // this.getNews();
+        // this.scrollNews();
     },
     mounted: function() {
         var that = this;
@@ -56,25 +57,7 @@ var app = new Vue({
                 that.routes = result.routes;
             });
         },
-        getDate: function() {
-            var date = new Date();
-            var seperator1 = "-";
-            var seperator2 = ":";
-            var month = date.getMonth() + 1;
-            var strDate = date.getDate();
-            if (month >= 1 && month <= 9) {
-                month = "0" + month;
-            }
-            if (strDate >= 0 && strDate <= 9) {
-                strDate = "0" + strDate;
-            }
-            var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
-                " " + date.getHours() + seperator2 + date.getMinutes() +
-                seperator2 + date.getSeconds();
-            this.date = currentdate;
-            var day = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
-            this.day = day[date.getDay()];
-        },
+        
         getWeather: function() {
             var that = this;
             $.ajax({
@@ -89,15 +72,14 @@ var app = new Vue({
                 }
             })
         },
-        rendnews:function(data){
-            var that=this;
-            that.oldnews=data;
-            if(that.news.length==0){
-                that.news=data;
-            }
-            else{
-                for(var i=0;i<data.length;i++){
-                    if(data[i].uniquekey==that.oldnews[0].uniquekey){
+        rendnews: function(data) {
+            var that = this;
+            that.oldnews = data;
+            if (that.news.length == 0) {
+                that.news = data;
+            } else {
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].uniquekey == that.oldnews[0].uniquekey) {
                         return;
                     }
                     that.news.unshift(data[i]);
