@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
 	<title></title>
-	 <script type="text/javascript" src="http://221.122.73.181:8080/marketing/js/pa.js"></script>
-    <script type="text/javascript">
-        var _paq = _paq || [];
-        window['_paq'] = _paq;
-        (function Domready(fn) {
-            if (document.addEventListener) {
-                document.addEventListener('DOMContentLoaded', function() {
-                    document.removeEventListener('DOMContentLoaded', arguments.callee, false);
-                   _paq.push(['adrecom', '19', 'iamad19', '', '', '']);
-                }, false);
-            } else if (document.attachEvent) {
-                document.attachEvent('onreadystatechange', function() {
-                    if (document.readyState == 'complete') {
-                        document.detachEvent('onreadystatechange', arguments.callee);
-                        _paq.push(['adrecom', '19', 'iamad19', '', '', '']);
-                    }
-                });
-            }
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <style type="text/css">
+        div{
+            background: #ccc;
+            margin-bottom: 20px;
         }
-        )()
-    </script>
+        h4,h5{
+            text-align: center;
+        }
+        #news div,#news{
+            background: #fff;
+        }
+    </style>
 </head>
 <body>
- <div id="iamad19"></div> 
-
+    <div>
+        <h4>这是一个我自己的网页，我把资讯的列表嵌入进来了</h5>
+        <h5>让我们看看效果吧，哈哈</h5>
+    </div>
+    <div id="news" class="clearfix"></div>
 </body>
+<script type="text/javascript" src="http://192.168.10.189:81/recom/src/libs/js/libs/jquery.min.js"></script>
+<script type="text/javascript" src="http://192.168.10.189:81/recom/src/default/test.js"></script>
+<script src="http://192.168.10.189:8081/target/target-script-min.js#anonymous"></script>
 </html>
